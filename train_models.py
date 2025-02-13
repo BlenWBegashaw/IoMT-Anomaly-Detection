@@ -9,8 +9,9 @@ from sklearn.metrics import accuracy_score, classification_report
 df = pd.read_csv("data/IP-Based Flows Pre-Processed Train.csv")
 
 # Define features & target
-X = df.drop(columns=["label"])  # Adjust according to actual dataset
-y = df["label"]
+X = df.drop(columns=["is_attack"])  # Drop the correct label column
+y = df["is_attack"]  # Use the correct target variable
+
 
 # Split dataset
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
